@@ -1,4 +1,5 @@
 @extends('layouts.template')
+@section('title', 'Landing Page')
 @section('content')
 
     <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
@@ -57,4 +58,4 @@
             </div>
         </div>
     </div>
-
+@endsection
