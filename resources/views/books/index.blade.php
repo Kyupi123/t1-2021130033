@@ -11,6 +11,7 @@
         <table class="table table-bordered mb-5">
             <thead>
                 <tr class="table-success">
+                    <th scope="col">#</th>
                     <th scope="col">ISBN</th>
                     <th scope="col">Judul</th>
                     <th scope="col">Halaman</th>
@@ -23,7 +24,8 @@
             <tbody>
                 @forelse ($books as $book)
                     <tr>
-                        <th scope="row">{{ $book->isbn }}</th>
+                        <th scope="row">{{ $book->id }}</th>
+                        <th >{{ $book->isbn }}</th>
                         <td>{{ Str::limit($book->judul, 10, ' ...') }}</td>
                         <td>{{ $book->halaman }}</td>
                         <td>{{ $book->kategori }}</td>
