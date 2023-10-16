@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Book;
 use Illuminate\Http\Request;
-
+use Carbon\Carbon;
 class BookController extends Controller
 {
     /**
@@ -28,7 +28,23 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        dump($request->all());
+        $validated = $request->validate([
+            'isbn' => 'required|string|min:13|max:13',
+            'judul' => 'required|string',
+            'halaman' => 'required|integer',
+            'kategori' => 'required|string',
+            'penerbit' => 'required|string',
+        ]);
+
+        $book = Book::create([
+            'isbn' => $validated['isbn'],
+            'judul' => $validated['judul'],
+            'halaman' => $validated['halaman'],
+            'kategori' => $validated['kategori'],
+            'penerbit' => $validated['penerbit'],
+        ]);
+
+        return $book;
     }
 
     /**
