@@ -19,20 +19,24 @@ class BookSeeder extends Seeder
         ];
 
         $faker = \Faker\Factory::create();
-        for($i = 0; $i < 25; $i++){
+
+        for($i = 0; $i < 25; $i++) {
             $isbn = $faker->isbn13();
             $judul = $faker->sentence(4);
             $halaman = $faker->numberBetween(20, 450);
-            $kategori = array_rand($cat);
+            $kategori = $faker->randomElement($cat);
             $penerbit = $faker->sentence(2);
             $created_at = $faker->dateTimeBetween('-10 years', 'now');
-        }
 
-        DB::table('books')->insert([
-            'isbn'=>$isbn,
-            'judul'=>$judul,
-            'halaman'=>$halaman,
-            'kategori'=>$kategori,
-        ]);
+            DB::table('books')->insert([
+                'isbn'=>$isbn,
+                'judul'=>$judul,
+                'halaman'=>$halaman,
+                'kategori'=>$kategori,
+                'penerbit'=>$penerbit,
+                'created_at'=>$created_at,
+                'updated_at'=>$created_at,
+            ]);
+        }
     }
 }
