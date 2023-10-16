@@ -26,6 +26,7 @@
                     <th scope="col">Penerbit</th>
                     <th scope="col">Created At</th>
                     <th scope="col">Updated At</th>
+                    <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -43,6 +44,11 @@
                         <td>{{ $book->penerbit }}</td>
                         <td>{{ $book->created_at }}</td>
                         <td>{{ $book->updated_at }}</td>
+                        <td>
+                            <a href="{{ route('books.edit', $book) }}" class="btn btn-primary btn-sm">
+                                Edit
+                            </a>
+                        </td>
                     </tr>
                 @empty
                     <tr>
