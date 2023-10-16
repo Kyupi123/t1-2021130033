@@ -45,7 +45,7 @@ class BookController extends Controller
             'penerbit' => $validated['penerbit'],
         ]);
 
-        return $book;
+        return redirect()->route('books.index')->with('success', 'Book added successfully.');
     }
 
     /**

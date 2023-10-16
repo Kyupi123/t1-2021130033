@@ -17,7 +17,7 @@
 
                 </div>
                 <div class="col-4 text-center">
-                    <a class="blog-header-logo text-dark" href="#">Tugas 1 PBWL</a>
+                    <a class="blog-header-logo text-dark" href="{{ route('landing') }}">Tugas 1 PBWL</a>
                 </div>
                 <div class="col-4 d-flex justify-content-end align-items-center">
                     {{--
@@ -38,12 +38,8 @@
 
         <div class="nav-scroller py-1 mb-2">
             <nav class="nav d-flex justify-content-between">
-                <a class="p-2 link-secondary" href="#">View 'Book' table</a>
-                <a class="p-2 link-secondary" href="#">U.S.</a>
-                <a class="p-2 link-secondary" href="#">Technology</a>
-                <a class="p-2 link-secondary" href="#">Design</a>
-                <a class="p-2 link-secondary" href="#">Culture</a>
-                <a class="p-2 link-secondary" href="#">Business</a>
+                <a class="p-2 link-secondary" href="{{ route('books.index') }}">View 'Book' table</a>
+                <a class="p-2 link-secondary" href="{{ route('books.create') }}">Add a book</a>
             </nav>
         </div>
     </div>
