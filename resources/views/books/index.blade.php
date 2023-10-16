@@ -7,6 +7,12 @@
         <h1>All Books</h1>
     </div>
 
+    @if (session()->has('success'))
+    <div class="alert alert-success mt-4">
+        {{ session()->get('success') }}
+    </div>
+    @endif
+
     <div class="container mt-5">
         <table class="table table-bordered mb-5">
             <thead>
@@ -25,8 +31,12 @@
                 @forelse ($books as $book)
                     <tr>
                         <th scope="row">{{ $book->id }}</th>
-                        <th >{{ $book->isbn }}</th>
-                        <td>{{ Str::limit($book->judul, 10, ' ...') }}</td>
+                        <th>
+                            <a href="{{ route('books.show', $book) }}">
+                                {{ $book->isbn }}
+                            </a>
+                        </th>
+                        <td>{{ Str::limit($book->judul, 50, ' ...') }}</td>
                         <td>{{ $book->halaman }}</td>
                         <td>{{ $book->kategori }}</td>
                         <td>{{ $book->penerbit }}</td>
