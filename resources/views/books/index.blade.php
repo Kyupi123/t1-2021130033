@@ -5,6 +5,7 @@
 @section('content')
     <div class="mt-4 p-5 bg-black text-white rounded">
         <h1>All Books</h1>
+        <a href="{{ route('books.create') }}" class="btn btn-primary btn-sm">Add New Book</a>
     </div>
 
     @if (session()->has('success'))
